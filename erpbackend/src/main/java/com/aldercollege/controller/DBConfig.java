@@ -1,4 +1,4 @@
-package controller;
+package com.aldercollege.controller;
 
 import java.util.Properties;
 
