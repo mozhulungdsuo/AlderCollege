@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.aldercollege.model.HigherSecondaryElectiveSubjects;
+import com.aldercollege.model.HSElectiveSubjects;
 
-@Repository("higherSecondaryElectiveSubjectsDAO")
-public class HigherSecondaryElectiveSubjectsDAOImpl implements HigherSecondaryElectiveSubjectsDAO{
+@Repository("hSElectiveSubjectsDAO")
+public class HSElectiveSubjectsDAOImpl implements HSElectiveSubjectsDAO{
 	@Autowired
 	SessionFactory sessionFactory;
 	@Override
 	@Transactional
-	public boolean addElective(HigherSecondaryElectiveSubjects elective) {
+	public boolean addElective(HSElectiveSubjects elective) {
 		try
 		{
 			
@@ -29,7 +29,7 @@ public class HigherSecondaryElectiveSubjectsDAOImpl implements HigherSecondaryEl
 
 	@Override
 	@Transactional
-	public boolean deleteElective(HigherSecondaryElectiveSubjects elective) {
+	public boolean deleteElective(HSElectiveSubjects elective) {
 		try
 		{
 			sessionFactory.getCurrentSession().delete(elective);			
@@ -42,7 +42,7 @@ public class HigherSecondaryElectiveSubjectsDAOImpl implements HigherSecondaryEl
 
 	@Override
 	@Transactional
-	public boolean updateElective(HigherSecondaryElectiveSubjects elective) {
+	public boolean updateElective(HSElectiveSubjects elective) {
 		try
 		{
 			sessionFactory.getCurrentSession().update(elective);	
@@ -56,11 +56,11 @@ public class HigherSecondaryElectiveSubjectsDAOImpl implements HigherSecondaryEl
 
 	@Override
 	@Transactional
-	public HigherSecondaryElectiveSubjects getElectiveList(String id) {
+	public HSElectiveSubjects getElectiveList(String id) {
 		try{
 			Session session=sessionFactory.openSession();
 
-			HigherSecondaryElectiveSubjects elective=session.get(HigherSecondaryElectiveSubjects.class,id);
+			HSElectiveSubjects elective=session.get(HSElectiveSubjects.class,id);
              session.close();
              
              return elective;		

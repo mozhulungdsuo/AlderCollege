@@ -1,11 +1,13 @@
 package com.aldercollege.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table
-public class HigherSecondaryElectiveSubjects {
+public class HSElectiveSubjects {
+@Id
 String id;
 boolean environmentalStudies;
 boolean lifeSkills;

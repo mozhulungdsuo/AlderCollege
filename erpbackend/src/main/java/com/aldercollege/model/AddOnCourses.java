@@ -1,11 +1,13 @@
 package com.aldercollege.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table
 public class AddOnCourses {
+	@Id
 String id;
 boolean baking;
 boolean music;

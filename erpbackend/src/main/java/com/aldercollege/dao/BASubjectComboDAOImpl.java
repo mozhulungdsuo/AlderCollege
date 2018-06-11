@@ -6,16 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.aldercollege.model.BAStudentSubjectCombination;
-import com.aldercollege.model.HigherSecondaryElectiveSubjects;
+import com.aldercollege.model.BASubjectCombo;
+import com.aldercollege.model.HSElectiveSubjects;
 
-@Repository(" bAStudentSubjectCombinationDAO")
-public class BAStudentSubjectCombinationDAOImpl implements BAStudentSubjectCombinationDAO {
+@Repository(" bASubjectComboDAO")
+public class BASubjectComboDAOImpl implements BASubjectComboDAO {
 	@Autowired
 	SessionFactory sessionFactory;
 	@Override
 	@Transactional
-	public boolean addBAStudentSubjectCombination(BAStudentSubjectCombination subjects) {
+	public boolean addBAStudentSubjectCombination(BASubjectCombo subjects) {
 		try
 		{
 			
@@ -30,7 +30,7 @@ public class BAStudentSubjectCombinationDAOImpl implements BAStudentSubjectCombi
 
 	@Override
 	@Transactional
-	public boolean deleteBAStudentSubjectCombination(BAStudentSubjectCombination subjects) {
+	public boolean deleteBAStudentSubjectCombination(BASubjectCombo subjects) {
 		try
 		{
 			sessionFactory.getCurrentSession().delete(subjects);			
@@ -43,7 +43,7 @@ public class BAStudentSubjectCombinationDAOImpl implements BAStudentSubjectCombi
 
 	@Override
 	@Transactional
-	public boolean updateBAStudentSubjectCombinatione(BAStudentSubjectCombination subjects) {
+	public boolean updateBAStudentSubjectCombinatione(BASubjectCombo subjects) {
 		try
 		{
 			sessionFactory.getCurrentSession().update(subjects);	
@@ -57,11 +57,11 @@ public class BAStudentSubjectCombinationDAOImpl implements BAStudentSubjectCombi
 
 	@Override
 	@Transactional
-	public BAStudentSubjectCombination getBAStudentSubjectCombinationList(String id) {
+	public BASubjectCombo getBAStudentSubjectCombinationList(String id) {
 		try{
 			Session session=sessionFactory.openSession();
 
-			BAStudentSubjectCombination subjects=session.get(BAStudentSubjectCombination.class,id);
+			BASubjectCombo subjects=session.get(BASubjectCombo.class,id);
              session.close();
              
              return subjects;		

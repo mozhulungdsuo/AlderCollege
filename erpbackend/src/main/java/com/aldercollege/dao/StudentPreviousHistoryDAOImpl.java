@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.aldercollege.model.HigherSecondaryElectiveSubjects;
-import com.aldercollege.model.StudentPreviousAcademicHistory;
-@Repository("studentPreviousAcademicHistoryDAO")
-public class StudentPreviousAcademicHistoryDAOImpl implements StudentPreviousAcademicHistoryDAO {
+import com.aldercollege.model.HSElectiveSubjects;
+import com.aldercollege.model.StudentPreviousHistory;
+@Repository("studentPreviousHistoryDAO")
+public class StudentPreviousHistoryDAOImpl implements StudentPreviousHistoryDAO {
 	@Autowired
 	SessionFactory sessionFactory;
 	@Override
 	@Transactional
-	public boolean addPreviousAcademicHistory(StudentPreviousAcademicHistory previous) {
+	public boolean addPreviousAcademicHistory(StudentPreviousHistory previous) {
 		try
 		{
 			
@@ -28,7 +28,7 @@ public class StudentPreviousAcademicHistoryDAOImpl implements StudentPreviousAca
 	}
 
 	@Override
-	public boolean deletePreviousAcademicHistory(StudentPreviousAcademicHistory previous) {
+	public boolean deletePreviousAcademicHistory(StudentPreviousHistory previous) {
 		try
 		{
 			sessionFactory.getCurrentSession().delete(previous);			
@@ -40,7 +40,7 @@ public class StudentPreviousAcademicHistoryDAOImpl implements StudentPreviousAca
 	}
 
 	@Override
-	public boolean updatePreviousAcademicHistory(StudentPreviousAcademicHistory previous) {
+	public boolean updatePreviousAcademicHistory(StudentPreviousHistory previous) {
 		try
 		{
 			sessionFactory.getCurrentSession().update(previous);	
@@ -53,11 +53,11 @@ public class StudentPreviousAcademicHistoryDAOImpl implements StudentPreviousAca
 	}
 
 	@Override
-	public StudentPreviousAcademicHistory getPreviousAcademicHistory(String id) {
+	public StudentPreviousHistory getPreviousAcademicHistory(String id) {
 		try{
 			Session session=sessionFactory.openSession();
 
-			StudentPreviousAcademicHistory previous=session.get( StudentPreviousAcademicHistory.class,id);
+			StudentPreviousHistory previous=session.get( StudentPreviousHistory.class,id);
              session.close();
              
              return previous;		

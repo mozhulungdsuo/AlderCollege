@@ -10,24 +10,24 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate4.HibernateTransactionManager;
-import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.aldercollege.dao.AddOnCoursesDAO;
 import com.aldercollege.dao.AddOnCoursesDAOImpl;
-import com.aldercollege.dao.BAStudentSubjectCombinationDAO;
-import com.aldercollege.dao.BAStudentSubjectCombinationDAOImpl;
-import com.aldercollege.dao.HigherSecondaryElectiveSubjectsDAO;
-import com.aldercollege.dao.HigherSecondaryElectiveSubjectsDAOImpl;
-import com.aldercollege.dao.StudentPreviousAcademicHistoryDAO;
-import com.aldercollege.dao.StudentPreviousAcademicHistoryDAOImpl;
+import com.aldercollege.dao.BASubjectComboDAO;
+import com.aldercollege.dao.BASubjectComboDAOImpl;
+import com.aldercollege.dao.HSElectiveSubjectsDAO;
+import com.aldercollege.dao.HSElectiveSubjectsDAOImpl;
+import com.aldercollege.dao.StudentPreviousHistoryDAO;
+import com.aldercollege.dao.StudentPreviousHistoryDAOImpl;
 import com.aldercollege.dao.StudentProfileDAO;
 import com.aldercollege.dao.StudentProfileDAOImpl;
 import com.aldercollege.model.AddOnCourses;
-import com.aldercollege.model.BAStudentSubjectCombination;
-import com.aldercollege.model.HigherSecondaryElectiveSubjects;
-import com.aldercollege.model.StudentPreviousAcademicHistory;
+import com.aldercollege.model.BASubjectCombo;
+import com.aldercollege.model.HSElectiveSubjects;
+import com.aldercollege.model.StudentPreviousHistory;
 import com.aldercollege.model.StudentProfile;
 
 @Configuration
@@ -57,15 +57,15 @@ public class DBConfig {
 		hibernateProp.put("hibernate.show_sql","true");
 		LocalSessionFactoryBuilder sessionFactoryBuilder=new LocalSessionFactoryBuilder(getDataSource());
 		sessionFactoryBuilder.addAnnotatedClass(StudentProfile.class);
-		sessionFactoryBuilder.addAnnotatedClass(StudentPreviousAcademicHistory.class);
-		sessionFactoryBuilder.addAnnotatedClass(HigherSecondaryElectiveSubjects.class);
-		sessionFactoryBuilder.addAnnotatedClass(BAStudentSubjectCombination.class);
+		sessionFactoryBuilder.addAnnotatedClass(StudentPreviousHistory.class);
+		sessionFactoryBuilder.addAnnotatedClass(HSElectiveSubjects.class);
+		sessionFactoryBuilder.addAnnotatedClass(BASubjectCombo.class);
 		sessionFactoryBuilder.addAnnotatedClass(AddOnCourses.class);
 		
 		sessionFactoryBuilder.addProperties(hibernateProp);
 		System.out.println("Table created???");
 		SessionFactory sessionFactory=sessionFactoryBuilder.buildSessionFactory();
-		System.out.println("No");
+		System.out.println("Yes");
 		return sessionFactory;
 }	
 	
@@ -77,21 +77,21 @@ public class DBConfig {
 		}
 	 	
 
-	 @Bean(name="bAStudentSubjectCombinationDAO")
-		public BAStudentSubjectCombinationDAO getBAStudentSubjectCombiantionDAO()
+	 @Bean(name="bASubjectComboDAO")
+		public BASubjectComboDAO getBAStudentSubjectCombiantionDAO()
 		{
-			return new BAStudentSubjectCombinationDAOImpl();
+			return new BASubjectComboDAOImpl();
 			
 		}
-	 @Bean(name="higherSecondaryElectiveSubjectsDAO")
-		public HigherSecondaryElectiveSubjectsDAO getHigherSecondaryElectiveSubjectsDAO()
+	 @Bean(name="hSElectiveSubjectsDAO")
+		public HSElectiveSubjectsDAO getHigherSecondaryElectiveSubjectsDAO()
 		{
-			return new HigherSecondaryElectiveSubjectsDAOImpl();
+			return new HSElectiveSubjectsDAOImpl();
 		}
-	 @Bean(name="studentPreviousAcademicHistoryDAO")
-		public StudentPreviousAcademicHistoryDAO getStudentPreviousAcademicHistoryDAO()
+	 @Bean(name="studentPreviousHistoryDAO")
+		public StudentPreviousHistoryDAO getStudentPreviousAcademicHistoryDAO()
 		{
-			return new StudentPreviousAcademicHistoryDAOImpl();
+			return new StudentPreviousHistoryDAOImpl();
 		}
 
 	 @Bean(name="studentProfileDAO")
@@ -103,7 +103,8 @@ public class DBConfig {
 	@Autowired
 	@Bean(name="transactionManager")	
 	public HibernateTransactionManager getHibernateTransactionManager(SessionFactory sessionFactory)
-	{ System.out.println("transaction??");
+	{ 
+		System.out.println("transaction??");
 		return new HibernateTransactionManager(sessionFactory);
 		
 	}
