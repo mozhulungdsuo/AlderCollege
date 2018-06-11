@@ -36,6 +36,7 @@ public class StudentProfile {
 	String guardianAddress;
 	String guardianPhoneNumber;
 	String kohimaAddress;
+	String lastEditor;
 	public String getId() {
 		return id;
 	}
@@ -143,6 +144,12 @@ public class StudentProfile {
 	}
 	public void setKohimaAddress(String kohimaAddress) {
 		this.kohimaAddress = kohimaAddress;
+	}
+	public String getLastEditor() {
+		return lastEditor;
+	}
+	public void setLastEditor(String lastEditor) {
+		this.lastEditor = lastEditor;
 	}
 	
 	

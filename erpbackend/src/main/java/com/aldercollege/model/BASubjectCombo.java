@@ -17,6 +17,7 @@ public class BASubjectCombo {
    boolean english;
    boolean economics;
    boolean tenyidie;
+   String lastEditor;
   
 public String getId() {
 	return id;
@@ -71,6 +72,12 @@ public boolean isTenyidie() {
 }
 public void setTenyidie(boolean tenyidie) {
 	this.tenyidie = tenyidie;
+}
+public String getLastEditor() {
+	return lastEditor;
+}
+public void setLastEditor(String lastEditor) {
+	this.lastEditor = lastEditor;
 }
 
 }

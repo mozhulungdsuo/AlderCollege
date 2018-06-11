@@ -5,31 +5,23 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.aldercollege.dao.StudentProfileDAO;
-import com.aldercollege.model.StudentProfile;
+import com.aldercollege.dao.StudentPreviousHistoryDAO;
+import com.aldercollege.model.StudentPreviousHistory;
+
 
 @RestController
-public class StudentProfileController {
+public class StudentPreviousHistoryController {
 	@Autowired
-	StudentProfileDAO studentProfileDAO;
-	@GetMapping(value="/demo")
-	public ResponseEntity<String> demo()
+	StudentPreviousHistoryDAO studentPreviousHistoryDAO;
+	@PostMapping(value="/addStudentPreviousHistory")
+	public ResponseEntity<String> addStudentPreviousHistory(@RequestBody StudentPreviousHistory previous, HttpSession session)
 	{
-		return new  ResponseEntity<String>("Demo data",HttpStatus.OK);
-	}
-	
-	
-	
-	@PostMapping(value="/addStudentProfile")
-	public ResponseEntity<String> addStudentProfile(@RequestBody StudentProfile student, HttpSession session)
-	{
-	      student.setLastEditor("noone");
-	 if (studentProfileDAO.addStudent(student))
+	   previous.setLastEditor("noone");
+	 if (studentPreviousHistoryDAO.addPreviousAcademicHistory(previous))
 	 {
 		 return new  ResponseEntity<String>("Success",HttpStatus.OK);
 		}
@@ -38,4 +30,5 @@ public class StudentProfileController {
 		 return new  ResponseEntity<String>("Failure",HttpStatus.NOT_FOUND);
 	 }
 	}
+
 }
