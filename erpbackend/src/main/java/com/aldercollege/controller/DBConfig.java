@@ -20,6 +20,8 @@ import com.aldercollege.dao.BASubjectComboDAO;
 import com.aldercollege.dao.BASubjectComboDAOImpl;
 import com.aldercollege.dao.HSElectiveSubjectsDAO;
 import com.aldercollege.dao.HSElectiveSubjectsDAOImpl;
+import com.aldercollege.dao.StudentPictureDAO;
+import com.aldercollege.dao.StudentPictureDAOImpl;
 import com.aldercollege.dao.StudentPreviousHistoryDAO;
 import com.aldercollege.dao.StudentPreviousHistoryDAOImpl;
 import com.aldercollege.dao.StudentProfileDAO;
@@ -27,6 +29,7 @@ import com.aldercollege.dao.StudentProfileDAOImpl;
 import com.aldercollege.model.AddOnCourses;
 import com.aldercollege.model.BASubjectCombo;
 import com.aldercollege.model.HSElectiveSubjects;
+import com.aldercollege.model.StudentPicture;
 import com.aldercollege.model.StudentPreviousHistory;
 import com.aldercollege.model.StudentProfile;
 
@@ -61,6 +64,7 @@ public class DBConfig {
 		sessionFactoryBuilder.addAnnotatedClass(HSElectiveSubjects.class);
 		sessionFactoryBuilder.addAnnotatedClass(BASubjectCombo.class);
 		sessionFactoryBuilder.addAnnotatedClass(AddOnCourses.class);
+		sessionFactoryBuilder.addAnnotatedClass(StudentPicture.class);
 		
 		sessionFactoryBuilder.addProperties(hibernateProp);
 		System.out.println("Table created???");
@@ -98,6 +102,11 @@ public class DBConfig {
 		public StudentProfileDAO getStudentProfileDAO()
 		{
 			return new StudentProfileDAOImpl();
+		}
+	 @Bean(name="studentPictureDAO")
+		public StudentPictureDAO getStudentPictureDAO()
+		{
+			return new StudentPictureDAOImpl();
 		}
 	 	
 	@Autowired
