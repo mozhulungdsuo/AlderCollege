@@ -6,19 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.aldercollege.model.BAStudentSubjectCombination;
 import com.aldercollege.model.HigherSecondaryElectiveSubjects;
 
-@Repository("higherSecondaryElectiveSubjectsDAO")
-public class HigherSecondaryElectiveSubjectsImpl implements HigherSecondaryElectiveSubjectsDAO{
+@Repository(" bAStudentSubjectCombinationDAO")
+public class BAStudentSubjectCombinationDAOImpl implements BAStudentSubjectCombinationDAO {
 	@Autowired
 	SessionFactory sessionFactory;
 	@Override
 	@Transactional
-	public boolean addElective(HigherSecondaryElectiveSubjects elective) {
+	public boolean addBAStudentSubjectCombination(BAStudentSubjectCombination subjects) {
 		try
 		{
 			
-			sessionFactory.getCurrentSession().save(elective);
+			sessionFactory.getCurrentSession().save(subjects);
 			return true;			
 		
 		}catch(Exception e)
@@ -29,10 +30,10 @@ public class HigherSecondaryElectiveSubjectsImpl implements HigherSecondaryElect
 
 	@Override
 	@Transactional
-	public boolean deleteElective(HigherSecondaryElectiveSubjects elective) {
+	public boolean deleteBAStudentSubjectCombination(BAStudentSubjectCombination subjects) {
 		try
 		{
-			sessionFactory.getCurrentSession().delete(elective);			
+			sessionFactory.getCurrentSession().delete(subjects);			
 		return true;
 		}catch(Exception e)
 		{
@@ -42,10 +43,10 @@ public class HigherSecondaryElectiveSubjectsImpl implements HigherSecondaryElect
 
 	@Override
 	@Transactional
-	public boolean updateElective(HigherSecondaryElectiveSubjects elective) {
+	public boolean updateBAStudentSubjectCombinatione(BAStudentSubjectCombination subjects) {
 		try
 		{
-			sessionFactory.getCurrentSession().update(elective);	
+			sessionFactory.getCurrentSession().update(subjects);	
 			
 		    return true;
 		}catch(Exception e)
@@ -56,14 +57,14 @@ public class HigherSecondaryElectiveSubjectsImpl implements HigherSecondaryElect
 
 	@Override
 	@Transactional
-	public HigherSecondaryElectiveSubjects getElectiveList(String id) {
+	public BAStudentSubjectCombination getBAStudentSubjectCombinationList(String id) {
 		try{
 			Session session=sessionFactory.openSession();
 
-			HigherSecondaryElectiveSubjects elective=session.get(HigherSecondaryElectiveSubjects.class,id);
+			BAStudentSubjectCombination subjects=session.get(BAStudentSubjectCombination.class,id);
              session.close();
              
-             return elective;		
+             return subjects;		
 		} catch (Exception e)
 		{
 			return null;

@@ -6,20 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.aldercollege.model.BAStudentSubjectCombination;
 import com.aldercollege.model.HigherSecondaryElectiveSubjects;
 
-@Repository(" bAStudentSubjectCombinationDAO")
-public class BAStudentSubjectCombinationImpl implements BAStudentSubjectCombinationDAO {
+@Repository("higherSecondaryElectiveSubjectsDAO")
+public class HigherSecondaryElectiveSubjectsDAOImpl implements HigherSecondaryElectiveSubjectsDAO{
 	@Autowired
 	SessionFactory sessionFactory;
 	@Override
 	@Transactional
-	public boolean addBAStudentSubjectCombination(BAStudentSubjectCombination subjects) {
+	public boolean addElective(HigherSecondaryElectiveSubjects elective) {
 		try
 		{
 			
-			sessionFactory.getCurrentSession().save(subjects);
+			sessionFactory.getCurrentSession().save(elective);
 			return true;			
 		
 		}catch(Exception e)
@@ -30,10 +29,10 @@ public class BAStudentSubjectCombinationImpl implements BAStudentSubjectCombinat
 
 	@Override
 	@Transactional
-	public boolean deleteBAStudentSubjectCombination(BAStudentSubjectCombination subjects) {
+	public boolean deleteElective(HigherSecondaryElectiveSubjects elective) {
 		try
 		{
-			sessionFactory.getCurrentSession().delete(subjects);			
+			sessionFactory.getCurrentSession().delete(elective);			
 		return true;
 		}catch(Exception e)
 		{
@@ -43,10 +42,10 @@ public class BAStudentSubjectCombinationImpl implements BAStudentSubjectCombinat
 
 	@Override
 	@Transactional
-	public boolean updateBAStudentSubjectCombinatione(BAStudentSubjectCombination subjects) {
+	public boolean updateElective(HigherSecondaryElectiveSubjects elective) {
 		try
 		{
-			sessionFactory.getCurrentSession().update(subjects);	
+			sessionFactory.getCurrentSession().update(elective);	
 			
 		    return true;
 		}catch(Exception e)
@@ -57,14 +56,14 @@ public class BAStudentSubjectCombinationImpl implements BAStudentSubjectCombinat
 
 	@Override
 	@Transactional
-	public BAStudentSubjectCombination getBAStudentSubjectCombinationList(String id) {
+	public HigherSecondaryElectiveSubjects getElectiveList(String id) {
 		try{
 			Session session=sessionFactory.openSession();
 
-			BAStudentSubjectCombination subjects=session.get(BAStudentSubjectCombination.class,id);
+			HigherSecondaryElectiveSubjects elective=session.get(HigherSecondaryElectiveSubjects.class,id);
              session.close();
              
-             return subjects;		
+             return elective;		
 		} catch (Exception e)
 		{
 			return null;
