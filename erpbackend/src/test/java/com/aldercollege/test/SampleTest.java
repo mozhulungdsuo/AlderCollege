@@ -1,4 +1,4 @@
-package com.aldercollege.test;
+/*package com.aldercollege.test;
 
 import static org.junit.Assert.*;
 
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.aldercollege.controller.DBConfig;
 import com.aldercollege.dao.AddOnCoursesDAO;
-import com.aldercollege.dao.StudentProfileDAO;
+
 import com.aldercollege.model.AddOnCourses;
 
 public class SampleTest {
@@ -25,6 +25,7 @@ public class SampleTest {
 	     AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 	      context.scan("com.aldercollege");
 	     context.refresh();
+	     context.close();
 	     
 	
 	     addOnCoursesDAO=(AddOnCoursesDAO) context.getBean("addOnCoursesDAO");
@@ -41,3 +42,4 @@ public class SampleTest {
 		assertTrue("Data inserted in job table",addOnCoursesDAO.addADDonCourse(course));
 	}
 }
+*/

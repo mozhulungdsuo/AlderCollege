@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.aldercollege.model.BASubjectCombo;
-import com.aldercollege.model.HSElectiveSubjects;
+
 
 @Repository(" bASubjectComboDAO")
 public class BASubjectComboDAOImpl implements BASubjectComboDAO {

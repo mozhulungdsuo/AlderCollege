@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.aldercollege.model.HSElectiveSubjects;
 import com.aldercollege.model.StudentPreviousHistory;
 @Repository("studentPreviousHistoryDAO")
 public class StudentPreviousHistoryDAOImpl implements StudentPreviousHistoryDAO {
