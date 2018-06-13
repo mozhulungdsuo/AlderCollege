@@ -6,19 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.aldercollege.model.AddOnCourses;
-
-@Repository("addOnCoursesDAO")
-public class AddOnCoursesDAOImpl implements AddOnCoursesDAO{
+import com.aldercollege.model.GuardianInfo;
+import com.aldercollege.model.HSElectiveSubjects;
+@Repository("guardianInfoDAO")
+public class GuardianInfoDAOImpl implements GuardianInfoDAO {
 	@Autowired
 	SessionFactory sessionFactory;
 	@Override
 	@Transactional
-	public boolean addADDonCourse(AddOnCourses course) {
+	public boolean addGuardian(GuardianInfo guardian) {
 		try
 		{
 			
-			sessionFactory.getCurrentSession().save(course);
+			sessionFactory.getCurrentSession().save(guardian);
 			return true;			
 		
 		}catch(Exception e)
@@ -28,10 +28,11 @@ public class AddOnCoursesDAOImpl implements AddOnCoursesDAO{
 	}
 
 	@Override
-	public boolean deleteAddOnCourses(AddOnCourses course) {
+	@Transactional
+	public boolean deleteGuardian(GuardianInfo guardian) {
 		try
 		{
-			sessionFactory.getCurrentSession().delete(course);			
+			sessionFactory.getCurrentSession().delete(guardian);			
 		return true;
 		}catch(Exception e)
 		{
@@ -40,10 +41,11 @@ public class AddOnCoursesDAOImpl implements AddOnCoursesDAO{
 	}
 
 	@Override
-	public boolean updateAddOnCourses(AddOnCourses course) {
+	@Transactional
+	public boolean updateGuardian(GuardianInfo guardian) {
 		try
 		{
-			sessionFactory.getCurrentSession().update(course);	
+			sessionFactory.getCurrentSession().update(guardian);	
 			
 		    return true;
 		}catch(Exception e)
@@ -53,14 +55,15 @@ public class AddOnCoursesDAOImpl implements AddOnCoursesDAO{
 	}
 
 	@Override
-	public AddOnCourses getCourse(String id) {
+	@Transactional
+	public GuardianInfo getGuardian(String id) {
 		try{
 			Session session=sessionFactory.openSession();
 
-			AddOnCourses course=session.get(AddOnCourses.class,id);
+			GuardianInfo guardian=session.get(GuardianInfo.class,id);
              session.close();
              
-             return course;		
+             return guardian;		
 		} catch (Exception e)
 		{
 			return null;

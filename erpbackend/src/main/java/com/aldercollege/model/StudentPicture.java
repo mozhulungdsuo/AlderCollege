@@ -10,7 +10,7 @@ public class StudentPicture {
 	
 	@Lob
 	private byte[]image;
-	String lastEditor;
+	
 
 	public String getId() {
 		return id;
@@ -28,11 +28,5 @@ public class StudentPicture {
 		this.image = image;
 	}
 
-	public String getLastEditor() {
-		return lastEditor;
-	}
-
-	public void setLastEditor(String lastEditor) {
-		this.lastEditor = lastEditor;
-	}
+	 
 }

@@ -30,7 +30,7 @@ public class StudentPreviousHistory {
 	float subject6Marks;
 	float subject7Marks;
 	float subject8Marks;
-	String lastEditor;
+	
 	public String getId() {
 		return id;
 	}
@@ -163,11 +163,6 @@ public class StudentPreviousHistory {
 	public void setSubject8Marks(float subject8Marks) {
 		this.subject8Marks = subject8Marks;
 	}
-	public String getLastEditor() {
-		return lastEditor;
-	}
-	public void setLastEditor(String lastEdit) {
-		this.lastEditor = lastEdit;
-	}	
+	
 
 }

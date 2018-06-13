@@ -20,7 +20,6 @@ public class StudentPreviousHistoryController {
 	@PostMapping(value="/addStudentPreviousHistory")
 	public ResponseEntity<String> addStudentPreviousHistory(@RequestBody StudentPreviousHistory previous, HttpSession session)
 	{
-	   previous.setLastEditor("noone");
 	 if (studentPreviousHistoryDAO.addPreviousAcademicHistory(previous))
 	 {
 		 return new  ResponseEntity<String>("Success",HttpStatus.OK);

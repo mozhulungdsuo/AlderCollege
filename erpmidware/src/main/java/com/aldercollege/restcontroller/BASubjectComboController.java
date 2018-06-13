@@ -19,7 +19,7 @@ public class BASubjectComboController {
 	@PostMapping(value="/addBASubjectCombo")
 	public ResponseEntity<String> addBASubjectCombo(@RequestBody BASubjectCombo subjects, HttpSession session)
 	{
-		subjects.setLastEditor("noone");
+		
 	   
 	 if (bASubjectComboDAO.addBAStudentSubjectCombination(subjects))
 	 {

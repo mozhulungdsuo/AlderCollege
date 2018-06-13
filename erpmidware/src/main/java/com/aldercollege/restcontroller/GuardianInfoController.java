@@ -5,31 +5,24 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.aldercollege.dao.StudentProfileDAO;
-import com.aldercollege.model.StudentProfile;
+import com.aldercollege.dao.GuardianInfoDAO;
+
+import com.aldercollege.model.GuardianInfo;
 
 @RestController
-public class StudentProfileController {
+public class GuardianInfoController {
 	@Autowired
-	StudentProfileDAO studentProfileDAO;
-	@GetMapping(value="/demo")
-	public ResponseEntity<String> demo()
+	GuardianInfoDAO guardianInfoDAO;
+	@PostMapping(value="/addGuardianInfo")
+	public ResponseEntity<String> addGuardianInfo(@RequestBody GuardianInfo guardian, HttpSession session)
 	{
-		return new  ResponseEntity<String>("Demo data",HttpStatus.OK);
-	}
-	
-	
-	
-	@PostMapping(value="/addStudentProfile")
-	public ResponseEntity<String> addStudentProfile(@RequestBody StudentProfile student, HttpSession session)
-	{
-	      
-	 if (studentProfileDAO.addStudent(student))
+		
+	   
+	 if (guardianInfoDAO.addGuardian(guardian))
 	 {
 		 return new  ResponseEntity<String>("Success",HttpStatus.OK);
 		}
@@ -38,4 +31,6 @@ public class StudentProfileController {
 		 return new  ResponseEntity<String>("Failure",HttpStatus.NOT_FOUND);
 	 }
 	}
+	
+
 }

@@ -19,6 +19,7 @@ public class StudentProfile {
 	@SequenceGenerator(name="stud_sequence", sequenceName="stud_seq", initialValue=1, allocationSize=1)
 	String id;
 	String univRegNo;
+	String aaddharNumber;
 	String firstName;
 	String lastName;
 	String middleName;
@@ -28,15 +29,6 @@ public class StudentProfile {
 	String identificationMark;
 	String religion;
 	String tribeOrCommunity;
-	String fatherName;
-	String motherName;
-	String fatherOrMotherAddress;
-	String fatherOrMotherPhoneNumber;
-	String guardianName;
-	String guardianAddress;
-	String guardianPhoneNumber;
-	String kohimaAddress;
-	String lastEditor;
 	public String getId() {
 		return id;
 	}
@@ -48,6 +40,12 @@ public class StudentProfile {
 	}
 	public void setUnivRegNo(String univRegNo) {
 		this.univRegNo = univRegNo;
+	}
+	public String getAaddharNumber() {
+		return aaddharNumber;
+	}
+	public void setAaddharNumber(String aaddharNumber) {
+		this.aaddharNumber = aaddharNumber;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -97,60 +95,8 @@ public class StudentProfile {
 	public void setTribeOrCommunity(String tribeOrCommunity) {
 		this.tribeOrCommunity = tribeOrCommunity;
 	}
-	public String getFatherName() {
-		return fatherName;
-	}
-	public void setFatherName(String fatherName) {
-		this.fatherName = fatherName;
-	}
-	public String getMotherName() {
-		return motherName;
-	}
-	public void setMotherName(String motherName) {
-		this.motherName = motherName;
-	}
-	public String getFatherOrMotherAddress() {
-		return fatherOrMotherAddress;
-	}
-	public void setFatherOrMotherAddress(String fatherOrMotherAddress) {
-		this.fatherOrMotherAddress = fatherOrMotherAddress;
-	}
-	public String getFatherOrMotherPhoneNumber() {
-		return fatherOrMotherPhoneNumber;
-	}
-	public void setFatherOrMotherPhoneNumber(String fatherOrMotherPhoneNumber) {
-		this.fatherOrMotherPhoneNumber = fatherOrMotherPhoneNumber;
-	}
-	public String getGuardianName() {
-		return guardianName;
-	}
-	public void setGuardianName(String guardianName) {
-		this.guardianName = guardianName;
-	}
-	public String getGuardianAddress() {
-		return guardianAddress;
-	}
-	public void setGuardianAddress(String guardianAddress) {
-		this.guardianAddress = guardianAddress;
-	}
-	public String getGuardianPhoneNumber() {
-		return guardianPhoneNumber;
-	}
-	public void setGuardianPhoneNumber(String guardianPhoneNumber) {
-		this.guardianPhoneNumber = guardianPhoneNumber;
-	}
-	public String getKohimaAddress() {
-		return kohimaAddress;
-	}
-	public void setKohimaAddress(String kohimaAddress) {
-		this.kohimaAddress = kohimaAddress;
-	}
-	public String getLastEditor() {
-		return lastEditor;
-	}
-	public void setLastEditor(String lastEditor) {
-		this.lastEditor = lastEditor;
-	}
+	
+	
 	
 	
 	

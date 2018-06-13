@@ -18,6 +18,8 @@ import com.aldercollege.dao.AddOnCoursesDAO;
 import com.aldercollege.dao.AddOnCoursesDAOImpl;
 import com.aldercollege.dao.BASubjectComboDAO;
 import com.aldercollege.dao.BASubjectComboDAOImpl;
+import com.aldercollege.dao.GuardianInfoDAO;
+import com.aldercollege.dao.GuardianInfoDAOImpl;
 import com.aldercollege.dao.HSElectiveSubjectsDAO;
 import com.aldercollege.dao.HSElectiveSubjectsDAOImpl;
 import com.aldercollege.dao.StudentPictureDAO;
@@ -26,12 +28,16 @@ import com.aldercollege.dao.StudentPreviousHistoryDAO;
 import com.aldercollege.dao.StudentPreviousHistoryDAOImpl;
 import com.aldercollege.dao.StudentProfileDAO;
 import com.aldercollege.dao.StudentProfileDAOImpl;
+import com.aldercollege.dao.UsersDAO;
+import com.aldercollege.dao.UsersDAOImpl;
 import com.aldercollege.model.AddOnCourses;
 import com.aldercollege.model.BASubjectCombo;
+import com.aldercollege.model.GuardianInfo;
 import com.aldercollege.model.HSElectiveSubjects;
 import com.aldercollege.model.StudentPicture;
 import com.aldercollege.model.StudentPreviousHistory;
 import com.aldercollege.model.StudentProfile;
+import com.aldercollege.model.Users;
 
 @Configuration
 @ComponentScan("com.aldercollege")
@@ -65,6 +71,8 @@ public class DBConfig {
 		sessionFactoryBuilder.addAnnotatedClass(BASubjectCombo.class);
 		sessionFactoryBuilder.addAnnotatedClass(AddOnCourses.class);
 		sessionFactoryBuilder.addAnnotatedClass(StudentPicture.class);
+		sessionFactoryBuilder.addAnnotatedClass(Users.class);
+		sessionFactoryBuilder.addAnnotatedClass(GuardianInfo.class);
 		
 		sessionFactoryBuilder.addProperties(hibernateProp);
 		System.out.println("Table created???");
@@ -107,6 +115,16 @@ public class DBConfig {
 		public StudentPictureDAO getStudentPictureDAO()
 		{
 			return new StudentPictureDAOImpl();
+		}
+	 @Bean(name="usersDAO")
+		public UsersDAO getUsersDAO()
+		{
+			return new UsersDAOImpl();
+		}
+	 @Bean(name="guardianInfoDAO")
+		public GuardianInfoDAO getGuardianInfoDAO()
+		{
+			return new GuardianInfoDAOImpl();
 		}
 	 	
 	@Autowired

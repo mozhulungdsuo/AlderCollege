@@ -13,7 +13,7 @@ boolean baking;
 boolean music;
 boolean violin;
 boolean computer;
-String lastEditor;
+
 public String getId() {
 	return id;
 }
@@ -44,11 +44,6 @@ public boolean isComputer() {
 public void setComputer(boolean computer) {
 	this.computer = computer;
 }
-public String getLastEditor() {
-	return lastEditor;
-}
-public void setLastEditor(String lastEditor) {
-	this.lastEditor = lastEditor;
-}
+
 
 }
